@@ -1,0 +1,29 @@
+<form [formGroup]="model">
+  <div class="content">
+    <div class="ui-g">
+      <div class="ui-g-12 card-title">
+        <p>{{ "features.roles.editRoleTitle" | translate }}</p>
+      </div>
+      <div class="card-content">
+        <div class="ui-g">
+          <div class="ui-lg-4 ui-md-12">
+            <span>{{ "features.roles.roleCode" | translate }}：</span>
+            <input type="text" pInputText formControlName="roleCode" />
+          </div>
+          <div class="ui-lg-4 ui-md-12">
+            <span>{{ "features.roles.roleName" | translate }}：</span>
+            <input type="text" pInputText formControlName="roleName" />
+          </div>
+          <div class="ui-lg-4 ui-md-12">
+            <span>{{ 'general.enable' | translate }}：</span>
+            <p-checkbox binary="true" formControlName="isActive"></p-checkbox>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="btn-group bottom">
+    <button pButton label="{{ 'general.cancel' | translate }}" class="outline" type="button" (click)="cancel()"></button>
+    <button pButton label="{{ 'general.save' | translate }}" type="button" (click)="save()" [disabled]="model.invalid"></button>
+  </div>
+</form>

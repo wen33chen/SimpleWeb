@@ -1,0 +1,27 @@
+<div class="main-content">
+  <div class="ui-g">
+    <div class="ui-g-6 no-padding jumbotron"></div>
+    <div class="ui-g-6 full no-padding ">
+      <div class="ui-g form-content">
+        <div class="ui-g"><h1>SSO Login</h1></div>
+        <div class="ui-g  field-wrapper input">
+          <label>Username</label>
+          <input type="text" pInputText [(ngModel)]="username" />
+        </div>
+        <div class="ui-g field-wrapper input">
+          <label>Password</label>
+          <input type="password" pInputText [(ngModel)]="password" />
+        </div>
+        <div class="ui-g field-wrapper ">
+          <button
+            pButton
+            type="button"
+            (click)="login()"
+            label="Login"
+          ></button>
+          <p style="color: red">{{ errorMsg }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

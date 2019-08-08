@@ -1,0 +1,33 @@
+<div class="content">
+  <div class="card-title"><p>checkbox group範例</p></div>
+  <div class="card-content">
+    <div class="ui-g  ui-fluid">
+      <form [formGroup]="testFrom">
+        <div>
+          <p-checkbox
+            id="All"
+            label="All"
+            (onChange)="getSelectedAllColors()"
+            [formControl]="All"
+            value="All"
+          ></p-checkbox>
+
+        </div>
+        <div *ngFor="let item of colorsArray.controls; let i = index">
+          <p-checkbox
+            [label]="colors[i]"
+            [formControl]="item"
+            (onChange)="getSelectedColorsValue()"
+            value="{{ colors[i] }}"
+          ></p-checkbox>
+        </div>
+      </form>
+      <div class="ui-g-6 ui-md-4">
+        目前選取
+        <div *ngFor="let item of selectedcolors; let i = index">
+          <label>{{ item }}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

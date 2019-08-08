@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/oidc-client/1.5.2/oidc-client.min.js"></script>
+  <title>Login</title>
+</head>
+
+<body>
+  <script>
+    var config = {
+      userStore: new Oidc.WebStorageStateStore({
+        store: window.localStorage
+      })
+    };
+    var mgr = new Oidc.UserManager(config);
+    mgr.signinRedirectCallback().then(function () {
+      // window.history.replaceState({}, window.document.title, window.location.origin);
+      location.href = '/';
+    }, function (error) {
+      console.log(error);
+    });
+  </script>
+</body>
+
+</html>

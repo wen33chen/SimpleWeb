@@ -1,0 +1,129 @@
+{
+  "topbar": {
+    "searchPlaceholder": "輸入功能代號或交易名稱",
+    "searchButton": "搜尋",
+    "user": "使用者",
+    "logout": "登出",
+    "login": "登入",
+    "menutoggle": "選單"
+  },
+  "general": {
+    "add": "新增",
+    "view": "檢視",
+    "edit": "修改",
+    "delete": "刪除",
+    "query": "查詢",
+    "save": "儲存",
+    "back": "返回",
+    "reset": "重設",
+    "cancel": "取消",
+    "enable": "啟用",
+    "disable": "停用",
+    "yes": "是",
+    "no": "否",
+    "success": "成功",
+    "successCreate": "新增資料成功",
+    "successUpdate": "更新資料成功",
+    "successUpdatefile": "上傳檔案成功",
+    "successDelete": "刪除資料成功",
+    "notifyTitle": "提示",
+    "deleteConfirmHeader": "確定要刪除?",
+    "deleteConfirmMessage": "確定要刪除此資料?",
+    "logout": {
+      "title": "你已經被登出了",
+      "login": "已成功登出，請重新登入"
+    }
+  },
+  "features": {
+    "roles": {
+      "name": "角色列表",
+      "roleId": "角色代號",
+      "roleCode": "角色代碼",
+      "roleName": "角色名稱",
+      "management": "角色功能",
+      "createRoleTitle": "新增角色",
+      "editRoleTitle": "編輯角色",
+      "deleteRoleConfirmHeader": "確定要刪除?",
+      "deleteRoleConfirmMessage": "確定要刪除此角色?"
+    },
+    "role": {
+      "name": "新增角色"
+    },
+    "features": {
+      "featureId": "功能代號",
+      "name": "功能列表",
+      "featureCode": "功能代碼",
+      "featureName": "功能名稱",
+      "featureGroupName": "功能群組名稱",
+      "management": "功能",
+      "createFeatureTitle": "新增功能",
+      "editFeatureTitle": "編輯功能",
+      "deleteFeatureConfirmHeader": "確定要刪除?",
+      "deleteFeatureConfirmMessage": "確定要刪除此功能?",
+      "featureGroup": "功能群組",
+      "sort": "排序",
+      "isAllowAssignRoleUse": "是否允許特定角色使用"
+    },
+    "feature": {
+      "name": "新增功能"
+    },
+    "branch": {
+      "name": "分行"
+    },
+    "upload": {
+      "chooseLabel": "選擇檔案",
+      "uploadLabel": "上傳",
+      "clearLabel": "清除"
+    },
+    "citySelector": {
+      "cityPlaceholder": "請選擇縣市",
+      "districtPlaceholder": "請選擇行政區"
+    }
+  },
+  "featuregroup": {
+    "name": "功能群組",
+    "FeatureGroupName": "群組名稱",
+    "IsActive": "啟用",
+    "sort": "排序",
+    "management": "群組功能",
+    "editGroupTitle": "編輯群組",
+    "FeatureGroupId": "群組代號",
+    "createGroupTitle": "新增群組"
+  },
+  "rolefeature": {
+    "roleName": "角色名稱",
+    "roleCode": "角色代碼",
+    "roleId": "角色代號",
+    "feature": "功能",
+    "management": "角色群組對應關聯功能",
+    "editrolefeatureTitle": "編輯角色群組對應關聯"
+  },
+  "error": {
+    "forbidden": "授權不足，請洽管理員",
+    "notifyErrorTitle": "錯誤提示訊息"
+  },
+  "menu": {
+    "name": "選單列表",
+    "menuName": "選單名稱",
+    "enabled": "啟用",
+    "management": "管理選單",
+    "edit": "編輯選單",
+    "linkText": "連結",
+    "featureGroupId": "功能群組",
+    "menuCode": "選單代碼",
+    "parentId": "上層選單",
+    "create": "新增選單",
+    "createChildMenu": "新增子選單",
+    "childrenMenuCount": "子選單數量"
+  },
+  "drowdownlistdefault": {
+    "default": "請選擇",
+    "noBindToFeature":"不綁定功能"
+  },
+  "exception": {
+    "name": "異常模組範例",
+    "keyword":"功能 ID",
+    "resultName": "查詢結果之功能名稱",
+    "fusingMechanism": "熔斷機制範例"
+  }
+}

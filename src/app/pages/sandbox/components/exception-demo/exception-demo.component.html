@@ -1,0 +1,49 @@
+<div class="content">
+  <div class="ui-g">
+    
+    <p-fieldset class="ui-g-12">
+      <p-header>{{ 'exception.name' | translate }}- 1(自行預期例外)</p-header>
+      <div class="card-content">
+        <div class="ui-g-12">
+          <div class="ui-inputgroup">
+            <input type="text" pInputText placeholder="{{ 'exception.keyword' | translate }}" [(ngModel)]="keyword1">
+            <button pButton type="button" label="{{ 'general.query' | translate }}" class="outline" (click)="handleClick1()"></button>
+          </div>
+        </div>
+      </div>
+      <div class="ui-g-12">
+        {{ 'exception.resultName' | translate }}: {{featureName1}}
+      </div>
+    </p-fieldset>
+    
+    <p-fieldset class="ui-g-12">
+      <p-header>{{ 'exception.name' | translate }}- 2(沒預期任何例外)</p-header>
+      <div class="card-content">
+        <div class="ui-g-12">
+          <div class="ui-inputgroup">
+            <input type="text" pInputText placeholder="{{ 'exception.keyword' | translate }}" [(ngModel)]="keyword2">
+            <button pButton type="button" label="{{ 'general.query' | translate }}" class="outline" (click)="handleClick2()"></button>
+          </div>
+        </div>
+      </div>
+      <div class="ui-g-12">
+        {{ 'exception.resultName' | translate }}: {{featureName2}}
+      </div>
+    </p-fieldset>
+
+    <p-fieldset class="ui-g-12">
+      <p-header>{{ 'exception.name' | translate }}- 3(商業邏輯錯誤)</p-header>
+      <div class="card-content">
+        <div class="ui-g-12">
+          <div class="ui-inputgroup">
+            <input type="text" pInputText placeholder="{{ 'features.features.featureName' | translate }}" [(ngModel)]="keyword3">
+            <button pButton type="button" label="{{ 'general.query' | translate }}" class="outline" (click)="handleClick3()"></button>
+          </div>
+        </div>
+      </div>
+      <div class="ui-g-12">
+        {{ 'exception.resultName' | translate }}: {{featureName3}}
+      </div>
+    </p-fieldset>
+  </div>
+</div>

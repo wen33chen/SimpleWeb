@@ -1,0 +1,16 @@
+<div class="content">
+  <div class="card-title"><p>City Selector</p></div>
+  <div class="card-content">
+    <app-city-selector
+      [disabled]="disabled"
+      [(ngModel)]="city"
+    ></app-city-selector>
+    <div class="ui-md-12">選擇的結果: {{ city }}</div>
+    <button
+      pButton
+      type="button"
+      label="{{ disabled ? 'Enable' : 'Disable' }}"
+      (click)="disabled = !disabled"
+    ></button>
+  </div>
+</div>

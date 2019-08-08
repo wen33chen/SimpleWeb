@@ -1,0 +1,14 @@
+<p-dropdown
+  [disabled]="disabled"
+  [options]="cities"
+  [(ngModel)]="selectedCity"
+  (onChange)="handleCityChange()"
+  [placeholder]="'features.citySelector.cityPlaceholder' | translate"
+></p-dropdown>
+<p-dropdown
+  [disabled]="!selectedCity || disabled"
+  [options]="district"
+  [(ngModel)]="selectedDistrict"
+  (onChange)="handleDistChange()"
+  [placeholder]="'features.citySelector.districtPlaceholder' | translate"
+></p-dropdown>

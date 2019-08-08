@@ -1,0 +1,54 @@
+.right-content {
+  margin-top: 64px;
+  margin-left: 280px;
+  padding-bottom: 72px;
+  min-height: calc(100vh - 65px);
+  background: #b4b4b4;
+  transition: margin-left 0.2s ease-in-out;
+}
+
+.right-content-big {
+  margin-top: 64px;
+  margin-left: 0;
+  padding-bottom: 72px;
+  min-height: calc(100vh - 65px);
+  background: #b4b4b4;
+  transition: margin-left 0.2s ease-in-out;
+}
+
+.toolbar-group {
+  display: inline-flex;
+  padding-left: 16px;
+  align-items: center;
+}
+
+.bottom-bar {
+  padding: 0 8px;
+  background-color: #fffae5;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  height: 22px;
+  .ui-g-11 {
+    padding: 0px;
+    span {
+      font-size: 12px;
+    }
+  }
+  .ui-g-1 {
+    padding: 0px;
+    text-align: right;
+    span {
+      font-size: 12px;
+    }
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .right-content,
+  .right-content-big {
+    min-height: calc(100vh - 35px);
+  }
+}

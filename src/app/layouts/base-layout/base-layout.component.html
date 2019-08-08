@@ -1,0 +1,38 @@
+<app-topbar></app-topbar>
+<div>
+  <p-sidebar [visible]="menudisplay" position="left" [showCloseIcon]="false">
+    <p-panelMenu
+      #sidebarMenu
+      [multiple]="false"
+      [model]="sidebarItems"
+    ></p-panelMenu>
+  </p-sidebar>
+  <div [className]="menudisplay ? 'right-content' : 'right-content-big'">
+    <div class="ui-g toolbar-section">
+      <div class="ui-g-8 ui-md-6 toolbar-group">
+        <i class="fas fa-bars" (click)="menuToggle()"></i>
+        <p-breadcrumb [model]="breadItems$ | async"></p-breadcrumb>
+      </div>
+      <div class="ui-g-4 ui-md-6">
+        <div class="ui-inputgroup">
+          <p-autoComplete
+            [placeholder]="'topbar.searchPlaceholder' | translate"
+            [(ngModel)]="searchKey"
+            size="23%"
+            [suggestions]="results"
+            (completeMethod)="autoComplete($event)"
+          >
+          </p-autoComplete>
+          <span class="ui-inputgroup-addon" (click)="goSearch($event)">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<div class="ui-g bottom-bar">
+  <div class="ui-g-11"><span>[公告訊息]基礎網站</span></div>
+  <div class="ui-g-1"><span>2018/01/11</span></div>
+</div>

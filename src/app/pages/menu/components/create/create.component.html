@@ -1,0 +1,63 @@
+<form [formGroup]="model">
+  <div class="content">
+    <div class="ui-g">
+      <div class="ui-g-12 card-title">
+        <p>{{ 'menu.create' | translate }}</p>
+      </div>
+      <div class="card-content">
+        <div class="ui-g">
+          <div class="ui-g-4">
+            <span>{{ 'menu.menuName' | translate }}: </span>
+            <input type="text" pInputText formControlName="text" />
+          </div>
+          <div class="ui-g-4">
+            <span>{{ 'menu.linkText' | translate }}: </span>
+            <input type="text" pInputText formControlName="linkUrl" />
+          </div>
+          <div class="ui-g-4">
+            <span>{{ 'general.enable' | translate }}：</span>
+            <p-checkbox binary="true" formControlName="active"></p-checkbox>
+          </div>
+          <div class="ui-g-4">
+            <span>{{ 'menu.menuCode' | translate }}: </span>
+            <input type="text" pInputText formControlName="menuCode" />
+          </div>
+          <div class="ui-g-4">
+            <span>{{ 'features.features.sort' | translate }}: </span>
+            <input type="number" pInputText formControlName="sort" />
+          </div>
+          <div class="ui-g-4">
+            <span>{{ 'features.features.name' | translate }}: </span>
+            <p-dropdown
+              [options]="featureSelectList$ | async"
+              formControlName="featureId"
+              [placeholder]="'drowdownlistdefault.default' | translate"
+              [autoWidth]="true"
+              [style]="{'width': '60%'}"
+            ></p-dropdown>
+          </div>
+          <div class="ui-g-4" *ngIf="lastMenuId !== 0">
+            <span>{{ 'menu.parentId' | translate }}: </span>
+            <span>{{ parentName }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="btn-group bottom">
+    <button
+      pButton
+      class="outline"
+      type="button"
+      label="{{ 'general.cancel' | translate }}"
+      (click)="cancel()"
+    ></button>
+    <button
+      pButton
+      label="{{ 'general.save' | translate }}"
+      type="button"
+      (click)="save()"
+      [disabled]="model.invalid"
+    ></button>
+  </div>
+</form>

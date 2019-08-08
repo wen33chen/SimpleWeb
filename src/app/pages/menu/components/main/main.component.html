@@ -1,0 +1,129 @@
+<div class="content">
+  <div class="ui-g">
+    <div class="ui-g-12 card-title">
+      <p>{{title}}</p>
+    </div>
+    <form [formGroup]="model">
+        <div class="ui-g-12"  *ngIf="isPeakMenu" >
+            <div class="ui-g">
+              <div class="ui-g-4">
+                <span>{{ "menu.menuName" | translate }}: </span>
+                <input type="text" pInputText formControlName="text" />
+              </div>
+              <div class="ui-g-4">
+                <span>{{ "menu.linkText" | translate }}: </span>
+                <input type="text" pInputText formControlName="linkUrl" />
+              </div>
+              <div class="ui-g-4">
+                <p-checkbox
+                  label="{{ 'general.enable' | translate }}"
+                  binary="true"
+                  formControlName="active"
+                ></p-checkbox>
+              </div>
+              <div class="ui-g-4">
+                <span>{{ "menu.menuCode" | translate }}: </span>
+                <input type="text" pInputText formControlName="menuCode" />
+              </div>
+              <div class="ui-g-4">
+                <span>{{ "features.features.sort" | translate }}: </span>
+                <input type="number" pInputText formControlName="sort" />
+              </div>
+              <div class="ui-g-4">
+                <span>{{ 'features.features.name' | translate }}: </span>
+                <p-dropdown
+                  [options]="featureSelectList$ | async"
+                  formControlName="featureId"
+                  [placeholder]="'drowdownlistdefault.default' | translate"
+                  [autoWidth]="true" [autoWidth]="true"
+                  [style]="{'width': '60%'}"
+                ></p-dropdown>
+              </div>
+            </div>
+        </div>
+        <div class="ui-g-12 toolbar">
+            <button *ngIf="isPeakMenu"
+                    pButton
+                    label="{{ 'general.save' | translate }}"
+                    type="button"
+                    (click)="save()"
+                    [disabled]="model.invalid"
+                    class="outline"
+            ></button>
+            <button  *ngIf="isNotLastMenu"
+                    pButton type="button"
+                    (click)="handleAdd()"
+                    [label]="addMenuButtonText"
+                    class="outline">
+            </button>
+            <button *ngIf="isPeakMenu"
+                    (click)="back()"
+                    pButton type="button"
+                    label="{{ 'general.back' | translate }}"
+                    class="outline">
+            </button>
+        </div>
+    </form>
+    <div class="card-content" *ngIf="isNotLastMenu">
+      <div class="ui-g-12">
+        <p-table #table [value]="(menus$ | async)?.items" [lazy]="true" [loading]="loading" (onLazyLoad)="lazyLoad($event)">
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="menuName">
+                {{ 'menu.menuName' | translate }}
+                <p-sortIcon field="menuName"></p-sortIcon>
+              </th>
+              <th>
+                  {{ "menu.menuCode" | translate }}
+              </th>
+              <th>
+                  {{ "menu.linkText" | translate }}
+              </th>
+              <th *ngIf="!isPeakMenu">
+                  {{ "menu.childrenMenuCount" | translate }}
+              </th>
+              <th pSortableColumn="sort">
+                  {{ "features.features.sort" | translate }}
+                <p-sortIcon field="sort"></p-sortIcon>
+              </th>
+              <th pSortableColumn="enable">
+                {{ 'general.enable' | translate }}
+                <p-sortIcon field="enable"></p-sortIcon>
+              </th>
+              <th>
+                {{ 'menu.management' | translate }}
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-item>
+            <tr>
+              <td>
+                {{item.displayText}}
+              </td>
+              <td>
+                  {{item.menuCode}}
+              </td>
+              <td>
+                  {{item.linkUrl}}
+                </td>
+              <td *ngIf="!isPeakMenu">
+                {{item.childrenCount}}
+              </td>
+              <td>
+                  {{item.sort}}
+              </td>
+              <td>
+                  <p appActiveText [isActive]="item.enabled" ></p>
+              </td>
+              <td class="btn-group">
+                <button pButton type="button" label="{{ 'general.view' | translate }}" class="outline" (click)="getMenuChildren(item)"></button>
+                <button pButton type="button" label="{{ 'general.delete' | translate }}" class="outline" (click)="handleDelete(item.menuId)"></button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+
+      </div>
+    </div>
+  </div>
+</div>

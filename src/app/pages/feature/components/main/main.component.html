@@ -1,0 +1,70 @@
+<div class="content">
+  <div class="ui-g">
+    <div class="ui-g-12 card-title">
+      <p>{{ 'features.features.name' | translate }}</p>
+    </div>
+    <div class="card-content">
+      <div class="ui-g-10">
+        <div class="ui-inputgroup">
+          <input type="text" pInputText placeholder="{{ 'features.features.featureName' | translate }}" [(ngModel)]="keyword">
+          <button pButton type="button" label="{{ 'general.query' | translate }}" class="outline" (click)="filter()"></button>
+        </div>
+      </div>
+      <div class="ui-g-2">
+
+      </div>
+      <div class="ui-g-12">
+        <p-table
+          #table
+          [value]="(features$ | async)?.items"
+          [lazy]="true"
+          [paginator]="true"
+          [rows]="pageSize"
+          [loading]="loading"
+          [totalRecords]="(features$ | async)?.totalCount"
+          (onLazyLoad)="lazyLoad($event)">
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="featureCode">
+                {{ 'features.features.featureCode' | translate }}
+                <p-sortIcon field="featureCode"></p-sortIcon>
+              </th>
+              <th>
+                {{ 'features.features.featureName' | translate }}
+              </th>
+              <th>
+                {{ 'features.features.featureGroupName' | translate }}
+              </th>
+              <th pSortableColumn="sort">
+                {{ 'features.features.sort' | translate }}
+                <p-sortIcon field="sort"></p-sortIcon>
+              </th>
+              <th>
+                {{ 'general.enable' | translate }}
+              </th>
+              <th>
+                {{ 'features.features.management' | translate }}
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-item>
+            <tr>
+              <td>{{item.featureCode}}</td>
+              <td>{{item.featureText}}</td>
+              <td>{{item.featureGroupName}}</td>
+              <td>{{item.sort}}</td>
+              <td>
+                  <p appActiveText [isActive]="item.isActive" ></p>
+              </td>
+              <td class="btn-group">
+                <button pButton type="button" label="{{ 'general.edit' | translate }}" class="outline" (click)="handleEdit(item.featureId)"></button>
+                <button pButton type="button" label="{{ 'general.delete' | translate }}" class="outline" (click)="handleDelete(item.featureId)" appFeatureAuth featureCode="10004"></button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+
+      </div>
+    </div>
+  </div>
+</div>

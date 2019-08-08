@@ -1,0 +1,110 @@
+<div class="content">
+  <div class="card-title"><p>表單驗證範例</p></div>
+  <div class="card-content">
+    <form [formGroup]="testFrom">
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <span>選擇顏色: </span>
+          <div
+            style="display:inline-block;margin-right:4px;"
+            *ngFor="let item of colorsArray.controls; let i = index"
+          >
+            <p-checkbox
+              [formControl]="item"
+              [label]="colors[i]"
+              (onChange)="getSelectedColorsValue()"
+              value="{{ colors[i] }}"
+            ></p-checkbox>
+          </div>
+        </div>
+      </div>
+      <div class="ui-g">
+        <div class="ui-lg-4 ui-md-12">
+          <span>EMAIL: </span>
+          <input type="text" pInputText formControlName="email" /><br />
+          <span style="color:red;" *ngIf="email.dirty && email.invalid">
+            email is required.
+          </span>
+        </div>
+        <div class="ui-lg-4 ui-md-12">
+          <span>英文姓名: </span>
+          <input
+            type="text"
+            pInputText
+            formControlName="lastname"
+            [pKeyFilter]="noSpecial"
+          /><br />
+          <span style="color:red;" *ngIf="lastname.dirty && lastname.invalid">
+            last name is required.
+          </span>
+        </div>
+
+        <div class="ui-lg-4 ui-md-12">
+          <label>數量:</label>
+          <input
+            type="number"
+            pInputText
+            formControlName="count"
+            (change)="checkcountValue()"
+          /><br />
+          <span style="color:red;" *ngIf="count.dirty && count.invalid">
+            count is required.
+          </span>
+        </div>
+      </div>
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <label>是否收到廣告:</label> 是
+          <p-radioButton
+            formControlName="shirt"
+            name="shirt"
+            value="1"
+          ></p-radioButton>
+          否
+          <p-radioButton
+            formControlName="shirt"
+            name="shirt"
+            value="2"
+          ></p-radioButton>
+          <span *ngIf="shirt.invalid && shirt.touched">
+            shirt is required.
+          </span>
+        </div>
+      </div>
+      <div class="ui-g"><p>下拉選單連動必填及disable</p></div>
+      <div class="ui-g">
+        <div class="ui-g-6">
+          <label for="country">第一層:</label>
+          <p-dropdown
+            [options]="countriess"
+            formControlName="country"
+            id="country"
+            dataKey="id"
+            optionLabel="name"
+            placeholder="請選擇功能群組"
+          ></p-dropdown>
+        </div>
+
+        <div class="ui-g-6">
+          <label for="state">第二層:</label>
+          <p-dropdown
+            [options]="statess"
+            formControlName="state"
+            id="state"
+            dataKey="id"
+            optionLabel="name"
+            placeholder="請選擇功能群組"
+          ></p-dropdown>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button
+          pButton
+          type="submit"
+          [disabled]="testFrom.invalid || checkboxinvaild"
+          label="{{ 'general.save' | translate }}"
+        ></button>
+      </div>
+    </form>
+  </div>
+</div>

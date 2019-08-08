@@ -1,0 +1,154 @@
+.main-content {
+  background: #f7f7f7;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 16px;
+}
+
+.banner {
+  height: 450px;
+  font-size: 5em;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  background-color: #e7e7e7;
+  .dot-wrapper {
+    list-style: none;
+    align-self: flex-end;
+    margin: 0;
+    padding: 0;
+    li {
+      width: 15px;
+      height: 15px;
+      background: #757882;
+      border-radius: 100%;
+      display: inline-block;
+      margin: 0 5px;
+    }
+  }
+}
+
+.box {
+  background: white;
+  box-shadow: 2px 2px 1px #e7e7e7;
+  height: 200px;
+  padding: 8px 16px;
+  h3 {
+    color: #00aa42;
+  }
+}
+
+.skeleton-list {
+  list-style: none;
+  padding: 0px;
+
+  li {
+    background: #e7e7e7;
+    width: 100%;
+    height: 15px;
+    margin-bottom: 16px;
+  }
+}
+
+footer {
+  position: relative;
+  min-height: 180px;
+  text-align: center;
+  background: #2da84a;
+  color: white;
+  font-weight: normal;
+  li {
+    background: white;
+    width: 100%;
+    height: 10px;
+    margin-bottom: 16px;
+  }
+
+  .green li {
+    background: #71bf44;
+  }
+}
+
+.login {
+  position: absolute;
+  right: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.jumbotron {
+  background-image: url('../../../assets/img/jumbotron.jpg');
+  height: 100vh;
+  background-size: cover;
+  -webkit-clip-path: circle(85.1% at 6% 49%);
+  clip-path: circle(85.1% at 6% 49%);
+}
+
+.field-wrapper {
+  flex-direction: column;
+  &.input {
+    margin-bottom: 24px;
+    label {
+      color: gray;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+  }
+  .ui-button {
+    border-radius: 16px;
+    border-radius: 16px;
+    background: #71bf44;
+    background: linear-gradient(to right, #71bf44 0%, #00994e 100%);
+  }
+
+  .ui-inputtext {
+    width: 100%;
+  }
+}
+
+.form-content {
+  flex-direction: column;
+  height: 100%;
+  padding: 0 32px;
+  justify-content: center;
+  .field-wrapper {
+    width: 50%;
+  }
+  h1 {
+    color: #3a3a3a;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .jumbotron {
+    -webkit-clip-path: circle(65% at 6% 49%);
+    clip-path: circle(65% at 6% 49%);
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .jumbotron {
+    display: none;
+  }
+
+  .form-content {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-group :not(:first-child) {
+    margin-left: 0;
+  }
+
+  .full {
+    width: 100%;
+    height: 100vh;
+  }
+}

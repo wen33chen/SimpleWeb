@@ -1,0 +1,34 @@
+<form [formGroup]="model">
+  <div class="content">
+    <div class="ui-g">
+      <div class="ui-g-12 card-title">
+        <p>{{ 'rolefeature.editrolefeatureTitle' | translate }}</p>
+      </div>
+      <div class="card-content">
+        <div class="ui-g">
+          <div class="ui-g-4">
+            <span>{{ 'rolefeature.roleName' | translate }}:{{roleName}} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content"  *ngFor="let child of (features$ | async)">
+      <div class="ui-g">
+        <div class="ui-g-12 card-title">
+          <p>{{child.featureGroupName}}</p>
+        </div>
+        <div class="ui-g-4" *ngFor="let childrens of child.feature">
+          <p-checkbox name="featureIds" label="{{ childrens.text }}" [formControl]="model.controls['featureIds']"
+            [value]="childrens.id"></p-checkbox>
+        </div>
+    </div>
+  </div>
+
+  <div class="btn-group bottom">
+      <button pButton  class="outline" type="button" label="{{ 'general.cancel' | translate }}" (click)="cancel()"></button>
+      <button pButton  type="button" label="{{ 'general.save' | translate }}" [disabled]="model.invalid" (click)="save()"></button>
+  </div>
+
+</form>

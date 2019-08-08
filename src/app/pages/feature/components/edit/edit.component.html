@@ -1,0 +1,42 @@
+<form [formGroup]="model">
+  <div class="content">
+    <div class="ui-g">
+      <div class="ui-g-12 card-title">
+        <p>{{ 'features.features.editFeatureTitle' | translate }}</p>
+      </div>
+      <div class="card-content">
+        <div class="ui-g">
+          <div class="ui-lg-4 ui-md-12">
+            <span>{{ 'features.features.featureCode' | translate }}：</span>
+            <input type="text" pInputText formControlName="featureCode" />
+          </div>
+          <div class="ui-lg-4 ui-md-12">
+            <span>{{ 'features.features.featureGroup' | translate }}：</span>
+            <p-dropdown [options]="featureGroupSelectList$ | async" [formControl]="model.controls['featureGroupId']"
+              dataKey="id" optionLabel="text" placeholder="請選擇功能群組"></p-dropdown>
+          </div>
+          <div class="ui-lg-4 ui-md-12">
+            <span>{{ 'features.features.featureName' | translate }}：</span>
+            <input type="text" pInputText formControlName="featureName" />
+          </div>
+          <div class="ui-lg-4 ui-md-12">
+            <span>{{ 'general.enable' | translate }}：</span>
+            <p-checkbox binary="true" formControlName="isActive"></p-checkbox>
+          </div>
+          <div class="ui-lg-4 ui-md-12">
+            <span>{{ 'features.features.isAllowAssignRoleUse' | translate }}：</span>
+            <p-checkbox binary="false" formControlName="isAllowAssignRoleUse"></p-checkbox>
+          </div>
+          <div class="ui-lg-4 ui-md-12">
+            <span>{{ 'features.features.sort' | translate }}：</span>
+            <input type="number" pInputText formControlName="sort" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="btn-group bottom">
+    <button pButton class="outline" type="button" label="{{ 'general.cancel' | translate }}" (click)="cancel()"></button>
+    <button pButton type="button" label="{{ 'general.save' | translate }}" [disabled]="model.invalid" (click)="save()"></button>
+  </div>
+</form>
